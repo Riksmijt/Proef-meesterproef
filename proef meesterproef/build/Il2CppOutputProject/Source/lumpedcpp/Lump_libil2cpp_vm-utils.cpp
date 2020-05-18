@@ -1,0 +1,6 @@
+#include "il2cpp-config.h"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\BlobReader.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\Debugger.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\NativeDelegateMethodCache.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\NativeSymbol.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\VmStringUtils.cpp"

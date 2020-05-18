@@ -1,0 +1,7 @@
+#include "il2cpp-config.h"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\gc\BoehmGC.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\gc\GCHandle.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\gc\GarbageCollector.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\gc\NullGC.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\gc\WriteBarrier.cpp"
+#include "D:\school_m\school\jaar3\corona\proef meesterproef\build\Il2CppOutputProject\IL2CPP\libil2cpp\gc\WriteBarrierValidation.cpp"
