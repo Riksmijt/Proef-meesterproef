@@ -20,8 +20,8 @@ public class speech_controll : MonoBehaviour
     {
         soundSource = GetComponent<AudioSource>();
         //Voice commands for changing color
-        keyActs.Add("Drum", Hallo1);
-        keyActs.Add("Stampot", Hallo2);
+        keyActs.Add("Drum", activateDrum);
+        keyActs.Add("Launchpad", activateLaunchpad);
         recognizer = new KeywordRecognizer(keyActs.Keys.ToArray());
         recognizer.OnPhraseRecognized += OnKeywordsRecognized;
         recognizer.Start();
@@ -32,15 +32,19 @@ public class speech_controll : MonoBehaviour
         text.text = args.text.ToString();
         keyActs[args.text].Invoke();
     }
-    void Hallo1()
+    void activateDrum()
     {
-        Debug.Log("Hallo1");
-        
+        Debug.Log("Drum");
+
+        play_instrument.drumIsActive = true;
+        play_instrument.launchpadIsActive = false;
        
     }
-    void Hallo2()
+    void activateLaunchpad()
     {
         Debug.Log("Hallo2");
+        play_instrument.drumIsActive = false;
+        play_instrument.launchpadIsActive = true;
     }
     /* void Talk()
      {

@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class play_instrument : MonoBehaviour
 {
+    public GameObject drum;
+    public GameObject launchpad;
+
+    public static bool drumIsActive;
+    public static bool launchpadIsActive;
     // Start is called before the first frame update
     void Start()
     {
-        
+        drumIsActive = true;
+        launchpadIsActive = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(Input.GetKey)
+        if(drumIsActive == true && launchpadIsActive == false)
+        {
+            drum.SetActive(true);
+            launchpad.SetActive(false);
+        }
+        if (launchpadIsActive == true && drumIsActive == false)
+        {
+            drum.SetActive(false);
+            launchpad.SetActive(true);
+        }
     }
 }
