@@ -5,23 +5,32 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
+using Random = UnityEngine.Random;
 
 public class speech_controll : MonoBehaviour
 {
     private Dictionary<string, Action> keyActs = new Dictionary<string, Action>();
     private KeywordRecognizer recognizer;
-
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip Aclip;
     private AudioSource soundSource;
 
+    public float volumeController;
+
     public Text text;
-    //public AudioClip[] sounds;
-    // Start is called before the first frame update
     void Start()
     {
         soundSource = GetComponent<AudioSource>();
-        //Voice commands for changing color
         keyActs.Add("Drum", activateDrum);
         keyActs.Add("Launchpad", activateLaunchpad);
+        keyActs.Add("Play sample", playSample);
+        keyActs.Add("Play again", playAgain);
+        keyActs.Add("Sample volume up", sampleVolumeHigher);
+        keyActs.Add("Sample volume down", sampleVolumeLower);
+        keyActs.Add("Sample volume" + soundSource.ToString(), sampleVolume);
+        keyActs.Add("Random pitch", playRandomPitch);
+        keyActs.Add("Normal pitch", playNormalPitch);
+        keyActs.Add("Stop sample", stopSample);
         recognizer = new KeywordRecognizer(keyActs.Keys.ToArray());
         recognizer.OnPhraseRecognized += OnKeywordsRecognized;
         recognizer.Start();
@@ -46,14 +55,39 @@ public class speech_controll : MonoBehaviour
         play_instrument.drumIsActive = false;
         play_instrument.launchpadIsActive = true;
     }
-    /* void Talk()
-     {
-         soundSource.clip = sounds[UnityEngine.Random.Range(0, sounds.Length)];
-         soundSource.Play();
-     }*/
-    // Update is called once per frame
-    private void Update()
+    void playSample()
     {
-        
+        Aclip = source.clip;
+        source.PlayOneShot(Aclip);
     }
+    void playAgain()
+    {
+        source.Stop();
+        source.PlayOneShot(Aclip);
+    }
+    void sampleVolume()
+    {
+        source.volume = volumeController / 100;
+    }
+    void sampleVolumeHigher()
+    {
+        source.volume += 0.2f;
+    }
+    void sampleVolumeLower()
+    {
+        source.volume -= 0.2f;
+    }
+    void playRandomPitch()
+    {
+        source.pitch += Random.Range(-2, 2);
+    }
+    void playNormalPitch()
+    {
+        source.pitch = 1;
+    }
+    void stopSample()
+    {
+        source.Stop();
+    }
+   
 }

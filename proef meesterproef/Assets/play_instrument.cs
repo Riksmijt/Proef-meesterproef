@@ -12,8 +12,8 @@ public class play_instrument : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        drumIsActive = true;
-        launchpadIsActive = false;
+        drumIsActive = false;
+        launchpadIsActive = true;
     }
 
     // Update is called once per frame
